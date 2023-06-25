@@ -8,8 +8,41 @@
 </head>
 
 <body>
-    <h1>Creando Primer Commit full Consola</h1>
-    <p>asdasd</p>
+
+    <h1>Proyecto 3 - Dashboar</h1>
+
+    <div class="card" id="tarjeta"></div>
+
+    <button id="boton" type="submit">Boton</button>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>
