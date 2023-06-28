@@ -22,6 +22,7 @@ function mostrar(e) {
 
 // Esperando evento del BOTON para ejecutar un ASYNC
 boton.addEventListener('click', async (e) => {
+
     // en la constante OPCION se guarda el valor seleccionado por el usuario
     const opcion = seleccion.value;
     // en la constante URL se guarda la direccion de la API + OPCION del usuario
@@ -37,7 +38,6 @@ boton.addEventListener('click', async (e) => {
     const valor = valoresSeleccion.serie.map((entry) => entry.valor)
     console.log(fechas)
     console.log(valor)
-
     // El elemento myChart y se inserta el grafico.
     const ctx = document.getElementById('myChart');
 
@@ -63,3 +63,8 @@ boton.addEventListener('click', async (e) => {
     });
 })
 
+const reload = document.getElementById('reload')
+reload.addEventListener("click", reloading)
+function reloading() {
+    location.reload()
+}
