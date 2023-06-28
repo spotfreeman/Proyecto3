@@ -1,3 +1,5 @@
+import { createChart } from "./chart.js";
+
 // API datos financieros
 const boton = document.getElementById('boton')
 const tarjeta = document.getElementById('tarjeta')
@@ -20,51 +22,39 @@ function mostrar(e) {
     `
 }
 
+let valoresApi = []
 // Esperando evento del BOTON para ejecutar un ASYNC
 boton.addEventListener('click', async (e) => {
-
+    e.preventDefault()
     // en la constante OPCION se guarda el valor seleccionado por el usuario
     const opcion = seleccion.value;
+
     // en la constante URL se guarda la direccion de la API + OPCION del usuario
+    // lo hice asi para que sea lo mas secuencial e ilustrativo
     const url = 'https://mindicador.cl/api/' + opcion
-    e.preventDefault()
 
-    // Obtenemos y cuardamos los datos JSON
-    const valoresUrl = await fetch(url)
-    const valoresSeleccion = await valoresUrl.json()
+    // Array que guardara los datos en LET para que sea usable de distintas funciones
+    let valoresApi = []
 
-    // Preparo la informacion a mostrar posteriormente
-    const fechas = valoresSeleccion.serie.map((entry) => entry.fecha)
-    const valor = valoresSeleccion.serie.map((entry) => entry.valor)
-    console.log(fechas)
-    console.log(valor)
-    // El elemento myChart y se inserta el grafico.
-    const ctx = document.getElementById('myChart');
+    // Obtenemos y guardamos los datos JSON   
+    const getData = async () => {
+        const opcion = seleccion.value;
+        const valorUrl = 'https://mindicador.cl/api/' + opcion
+        const url = await fetch(valorUrl);
+        const data = await url.json();
+        console.log(data)
+        valoresApi = data.serie;
+    };
 
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            // Aqui se inserta la CONST "fechas"
-            labels: fechas,
-            datasets: [{
-                label: 'Valor',
-                // Aqui se inserta la CONST "valor"
-                data: valor,
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: false
-                }
-            }
-        }
-    });
+    // Enviamos la informacion guardada en el Arregle "valoresApi" a Chart.js
+    getData()
+        // Si la informacion es correcta
+        .then(() => { createChart(valoresApi) })
+        // Si la informacion es incorrecta o algo salio mal
+        .catch(error => console.log("Algo salio mal"))
+        .finally(end => console.log("Fin de la ejecucion de getData"))
+
 })
 
-const reload = document.getElementById('reload')
-reload.addEventListener("click", reloading)
-function reloading() {
-    location.reload()
-}
+// Existen dos boton.addEventListener por que queria ver como funcionaban en 
+// paralelo no es un error de duplicado
