@@ -1,4 +1,5 @@
 const myChart = document.getElementById('myChart')
+const valorDiaHtml = document.getElementById('valorDia')
 let myChartFin
 
 export const createChart = (valoresApi) => {
@@ -11,10 +12,16 @@ export const createChart = (valoresApi) => {
     const valorValor = valoresApi.map((item) => item.valor)
     const valorValorInvertida = valorValor.slice().reverse()
 
+
+
     const ultimaFecha = valorFecha[0]
     console.log(ultimaFecha)
     const ultimoValor = valorValor[0]
     console.log(ultimoValor)
+
+    valorDiaHtml.innerHTML = `
+    <h5>Valor de Hoy ${ultimoValor}</h5>
+    `
 
     myChartFin = new Chart(myChart, {
         type: 'line',
