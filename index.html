@@ -15,59 +15,102 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar bg-primary" data-bs-theme="dark">
-        <h3> Proyecto 3 : Dashboard</h3>
+
+        <h3> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z" />
+            </svg>
+
+            Proyecto 3 : Dashboard</h3>
     </nav>
 
-    <div class="card m-4">
-        <!-- Titulo -->
-        <h5 class="card-header">Proyecto 3 - Dashboard " Estado Financiero "</h5>
 
-        <!-- Contenido interactivo para el usuario -->
-        <div class="card-body">
-            <h5 class="card-title">API obtiene informacion desde :</h5>
-            <p id="tarjeta" class="card-text">https://mindicador.cl/api</p>
-        </div>
-        <!-- Campo Seleccionable -->
-        <form>
-            <div class="container text-center">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <select id="seleccion" class="form-select m-1 p-1" style="max-width: 15rem;"
-                            aria-label="Default select example" required>
-                            <option selected disabled value="">Seleccionar indicador</option>
-                            <option value="uf">UF</option>
-                            <option value="dolar">Dolar</option>
-                            <option value="euro">Euro</option>
-                            <option value="ivp">IVP</option>
-                            <option value="dolar_intercambio">Dolar Intercambio</option>
-                            <option value="ipc">IPC</option>
-                            <option value="utm">UTM</option>
-                            <option value="imacec">IMACEC</option>
-                            <option value="tpm">TPM</option>
-                            <option value="libra_cobre">Libra de Cobre</option>
-                            <option value="tasa_desempleo">Tasa Desempleo</option>
-                            <option value="bitcoin">Bitcoin</option>
-                        </select>
+    <div class="row p-1">
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card">
+                        <!-- Titulo -->
+                        <h5 class="card-header">Dashboard Financiero</h5>
+
+                        <!-- Contenido interactivo para el usuario -->
+                        <div class="card-body">
+                            <h5 class="card-title">API obtiene informacion desde :</h5>
+                            <p id="tarjeta" class="card-text">https://mindicador.cl/api</p>
+                        </div>
+
+                        <!-- Campo Seleccionable -->
+                        <form>
+                            <div class="container text-center">
+                                <div class="row align-items-start">
+                                    <div class="col">
+                                        <select id="seleccion" class="form-select" style="max-width: 15rem;"
+                                            aria-label="Default select example" required>
+                                            <option selected disabled value="">Seleccionar indicador</option>
+                                            <option value="uf">UF</option>
+                                            <option value="dolar">Dolar</option>
+                                            <option value="euro">Euro</option>
+                                            <option value="ivp">IVP</option>
+                                            <option value="dolar_intercambio">Dolar Intercambio</option>
+                                            <option value="ipc">IPC</option>
+                                            <option value="utm">UTM</option>
+                                            <option value="imacec">IMACEC</option>
+                                            <option value="tpm">TPM</option>
+                                            <option value="libra_cobre">Libra de Cobre</option>
+                                            <option value="tasa_desempleo">Tasa Desempleo</option>
+                                            <option value="bitcoin">Bitcoin</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Boton -->
+
+
+                                </div>
+                            </div>
+                        </form>
+
+                        <br>
+                        <div class="col text-center">
+                            <button id="boton" class="btn bg-primary m-4 p-2" type="submit"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-graph-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z" />
+                                </svg> Buscar</button>
+                        </div>
+
+                        <div class="card-body text-center">
+                            <h5 id="valorDia" class="card-title"></h5>
+                        </div>
                     </div>
 
-                    <!-- Boton -->
-                    <div class="col">
-                        <button id="boton" class="btn bg-primary m-4 p-2" type="submit">Buscar</button>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-9">
+            <div class="card">
+                <div class="card-body">
+
+
+                    <!-- Grafico -->
+                    <div class="card">
+                        <h5 class="card-header">Grafico</h5>
+                        <div class="card-body col-12 align-items-center height: 300px;">
+                            <div class="row align-items-center">
+                                <canvas id="myChart" class=""></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
-
-    <!-- Grafico -->
-    <div class="card m-4">
-        <h5 class="card-header">Grafico</h5>
-        <div class="card-body col-12 align-items-center height: 300px;">
-            <div class="row align-items-center">
-                <canvas id="myChart" class=""></canvas>
-            </div>
         </div>
     </div>
+
+
 
 
     <!-- Footer -->
