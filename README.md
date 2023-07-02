@@ -14,7 +14,7 @@
 
 ## Visual
 
-![Captura de pantalla](imagen.jpg)
+![Captura de pantalla](captura.jpg)
 
 ## Construido con 🛠️
 
