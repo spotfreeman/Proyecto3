@@ -41,7 +41,7 @@ boton.addEventListener('click', async (e) => {
     // Array que guardara los datos en LET para que sea usable de distintas funciones
     let valoresApi = []
 
-    // Obtenemos y guardamos los datos JSON   
+    // Obtenemos y guardamos los datos JSON
     const getData = async () => {
         const opcion = seleccion.value;
         const valorUrl = 'https://mindicador.cl/api/' + opcion
