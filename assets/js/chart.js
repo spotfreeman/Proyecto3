@@ -15,6 +15,8 @@ export const createChart = (valoresApi) => {
     // Nueva funcionalidad indicador del dia
     const ultimoValor = parseInt(valorValor[0])
     const penultimoValor = parseInt(valorValor[1])
+
+
     console.log(ultimoValor)
     console.log(penultimoValor)
     if (ultimoValor < penultimoValor) {
