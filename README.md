@@ -10,11 +10,11 @@
 
 ## Insignias
 
-
+![Badge en Desarollo](https://img.shields.io/badge/STATUS-Desarrollo-green)
 
 ## Visual
 
-![Captura de pantalla](imagen.jpg)
+![Captura de pantalla](Captura.jpg)
 
 ## Construido con 🛠️
 
