@@ -55,6 +55,7 @@ export const createChart = (valoresApi) => {
             }]
         },
         options: {
+            label: false,
             scales: {
                 y: {
                     // BeginAtZero en falso para que el grafico no inicie de valor = 0
