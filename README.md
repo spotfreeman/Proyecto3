@@ -10,7 +10,7 @@
 
 ## Insignias
 
-![Badge en Desarollo](https://img.shields.io/badge/STATUS-Desarrollo-green)
+![Badge en Aprobado](https://img.shields.io/badge/STATUS-Desarrollo-green)
 
 ## Visual
 
