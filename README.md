@@ -5,9 +5,6 @@
 ## Descripción
 
 
-
-
-
 ## Insignias
 
 ![Badge en Aprobado](https://img.shields.io/badge/STATUS-Aprobado-green)
